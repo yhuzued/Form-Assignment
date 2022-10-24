@@ -57,8 +57,40 @@
   margin-bottom: 0.5rem;
 }
 
+input {
+  height: 1.3rem;
+}
+
+input[type="text"]
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input:focus {
+  background-color: aliceblue;
+  outline: none;
+}
+
+input:hover {
+  background-color: whitesmoke;
+}
+
+.vld-password input:focus:invalid {
+  border: 2px solid red;
+}
+
+
 a {
   text-decoration: none;
+}
+
+.country-id {
+  width: 2rem;
+}
+
+.phone-id {
+  max-width : 50%;
+  min-width: 50%;
 }
 
 button {

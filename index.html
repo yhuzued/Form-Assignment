@@ -25,52 +25,68 @@
           <div class="input-field">
             <div class="left-side">
               <div>
-                <label for="firs-name">First Name</label>
+                <label for="firs-name" aria-required="true">First Name*</label>
                 <div>
-                  <input class="input-form" type="text" name="first-name " id="first-name">
+                  <input class="input-form" type="text" name="first-name " id="first-name" required>
                 </div>
               </div>
               <div>
-                <label for="last-name">Last Name</label>
+                <label for="last-name" aria-required="true">Last Name*</label>
                 <div>
-                  <input class="input-form" type="text" name="last-name" id="last-name">
+                  <input class="input-form" type="text" name="last-name" id="last-name" required>
                 </div>  
                 
               </div>
               <div>
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <div>
-                  <input class="input-form" type="email" name="email" id="email">
+                  <input class="input-form" type="email" name="email" id="email" required>
                 </div>
                 
               </div>
             </div>
             <div class="right-side">
               <div>
-                <label for="password">Password</label>
+                <label for="password">Password*</label>
                 <div>
-                  <input class="input-form"  type="password" name="password" id="password">
+                  <div class="vld-password">
+                    <input class="input-form"  type="password" name="password" id="password" minlength="6">
+                  </div>
                 </div>
               </div>
               <div>
-                <label for="confirm-password">Confirm Password</label>
-                <div>
-                  <input class="input-form" type="password" name="confirm-password" id="confirm-password">
+                <label for="confirm-password">Confirm Password*</label>
+                <div class="vld-password">
+                    <input class="input-form" type="password" name="confirm-password" id="confirm-password"  required minlength="6" onchange="diklik();">
                 </div>
               </div>
               <div>
                 <label for="phone-number">Phone Number</label>
                 <div>
-                  <input class="input-form" type="number" name="phone" id="phone">
+                  <input class="input-form country-id" maxlength="3" type="text" name="country" id="contry" placeholder="+62">
+                  <input class="input-form phone-id" type="text" name="phone" id="phone" maxlength="11">
                 </div>
               </div>
             </div>
           </div>
-          <button type="submit">Create Account</button>
+          <button class="submit" type="submit" onchange="diklik();">Create Account</button>
         </form>
       </div>
       <div class="footer" >Already have an account? <a href="#">Log in</a></div>
     </div>
   </div>
+  <script>
+    function diklik(){
+      const pas = document.querySelector("#password")
+      const conf = document.querySelector("#confirm-password")
+      const sub = document.querySelector('.submit')
+      if (!(pas.value === conf.value)){
+        sub.disabled = true
+        alert('password didn\'t match')
+      } else {
+        sub.disabled = false
+      }
+    }
+  </script>
 </body>
 </html>
